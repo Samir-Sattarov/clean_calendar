@@ -8,9 +8,12 @@ class HeaderProperties {
   /// - navigatorDecoration, changes the decoration of navigator.
   final NavigatorDecoration? navigatorDecoration;
 
+  final Function()? onRefreshTap;
+
   HeaderProperties({
     this.monthYearDecoration,
     this.navigatorDecoration,
+    this.onRefreshTap,
   });
 
   Map<String, dynamic> toMap() {

@@ -3,14 +3,16 @@ import 'package:clean_calendar/src/state/page_controller.dart';
 import 'package:flutter/material.dart';
 
 class CalendarNavigatorHeaderSection extends StatelessWidget {
-  const CalendarNavigatorHeaderSection(
-      {Key? key,
-      required this.calendarProperties,
-      required this.pageControllerState})
-      : super(key: key);
+  const CalendarNavigatorHeaderSection({
+    Key? key,
+    required this.calendarProperties,
+    required this.pageControllerState,
+    this.onRefreshTap,
+  }) : super(key: key);
 
   final CalendarProperties calendarProperties;
   final PageControllerState pageControllerState;
+  final Function()? onRefreshTap;
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +33,8 @@ class CalendarNavigatorHeaderSection extends StatelessWidget {
             : DateUtils.dateOnly(calendarProperties.initialViewMonthDateTime
                     .copyWith(day: 1)) !=
                 DateUtils.dateOnly(pageViewDateTime.copyWith(day: 1));
+
+        if (onRefreshTap == null) const Icon(Icons.refresh);
 
         Icon navigatorResetButtonIcon = calendarProperties.headerProperties
                 .navigatorDecoration?.navigatorResetButtonIcon ??

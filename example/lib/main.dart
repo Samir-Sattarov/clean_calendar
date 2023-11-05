@@ -40,6 +40,9 @@ class _HomeState extends State<Home> {
         child: ListView(
           children: [
             CleanCalendar(
+              onRefreshTap: () {
+                print("Refresh");
+              },
               enableDenseViewForDates: true,
               enableDenseSplashForDates: true,
               datesForStreaks: [

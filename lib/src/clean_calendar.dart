@@ -32,6 +32,9 @@ class CleanCalendar extends StatelessWidget {
     this.startWeekday,
     this.weekdaysSymbol,
     this.monthsSymbol,
+    this.blinkDuration,
+    this.listBlinkedDates,
+    this.onRefreshTap,
   }) : super(key: key);
 
   /// - datePickerCalendarView, It takes calendar view type.
@@ -111,9 +114,16 @@ class CleanCalendar extends StatelessWidget {
   /// Defaults symbols are January, February, March, April, May, June, July, August, September, October, November, December.
   final Months? monthsSymbol;
 
+  final List<DateTime>? listBlinkedDates;
+
+  final Duration? blinkDuration;
+
+  final Function()? onRefreshTap;
+
   @override
   Widget build(BuildContext context) {
     return Calendar(
+      onRefreshTap: onRefreshTap,
       calendarProperties: CalendarProperties(
           datePickerCalendarView: datePickerCalendarView,
           weekdaysProperties: weekdaysProperties,

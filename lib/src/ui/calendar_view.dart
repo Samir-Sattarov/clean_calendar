@@ -6,22 +6,29 @@ import 'package:clean_calendar/src/ui/calendar_weekday_header_section.dart';
 import 'package:flutter/material.dart';
 
 class Calendar extends StatelessWidget {
-  const Calendar({Key? key, required this.calendarProperties})
+  const Calendar(
+      {Key? key, required this.calendarProperties, this.onRefreshTap})
       : super(key: key);
 
   final CalendarProperties calendarProperties;
+  final Function()? onRefreshTap;
 
   @override
   Widget build(BuildContext context) {
-    return CalendarView(calendarProperties: calendarProperties);
+    return CalendarView(
+      calendarProperties: calendarProperties,
+      onRefreshTap: onRefreshTap,
+    );
   }
 }
 
 class CalendarView extends StatefulWidget {
-  const CalendarView({Key? key, required this.calendarProperties})
+  const CalendarView(
+      {Key? key, required this.calendarProperties, this.onRefreshTap})
       : super(key: key);
 
   final CalendarProperties calendarProperties;
+  final Function()? onRefreshTap;
 
   @override
   State<CalendarView> createState() => _CalendarViewState();
@@ -60,8 +67,10 @@ class _CalendarViewState extends State<CalendarView> {
     return Column(
       children: [
         CalendarNavigatorHeaderSection(
-            calendarProperties: widget.calendarProperties,
-            pageControllerState: pageControllerState),
+          calendarProperties: widget.calendarProperties,
+          pageControllerState: pageControllerState,
+          onRefreshTap: widget.onRefreshTap,
+        ),
         CalendarWeekdayHeaderSection(
             calendarProperties: widget.calendarProperties),
         CalendarDatesSection(

@@ -4,11 +4,11 @@ import 'package:clean_calendar/src/ui/calendar_dates_section/pageview_builders.d
 import 'package:flutter/material.dart';
 
 class CalendarDatesSection extends StatelessWidget {
-  const CalendarDatesSection(
-      {Key? key,
-      required this.calendarProperties,
-      required this.pageControllerState})
-      : super(key: key);
+  const CalendarDatesSection({
+    Key? key,
+    required this.calendarProperties,
+    required this.pageControllerState,
+  }) : super(key: key);
 
   final CalendarProperties calendarProperties;
   final PageControllerState pageControllerState;

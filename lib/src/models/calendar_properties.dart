@@ -144,6 +144,12 @@ class CalendarProperties {
   /// App context (For setting defaults based on app theme).
   final BuildContext context;
 
+  final List<DateTime>? listBlinkedDates;
+
+  final Duration? blinkDuration;
+
+  final Function()? onRefreshClick;
+
   CalendarProperties({
     HeaderProperties? headerProperties,
     WeekdaysProperties? weekdaysProperties,
@@ -169,6 +175,9 @@ class CalendarProperties {
     WeekDay? startWeekday,
     Weekdays? weekdaysSymbol,
     Months? monthsSymbol,
+    List<DateTime>? listBlinkedDates,
+    Duration? blinkDuration,
+    this.onRefreshClick,
     required this.context,
   })  :
 
@@ -459,6 +468,8 @@ class CalendarProperties {
 
         /// Setting startWeekday value.
         startWeekday = startWeekday ?? WeekDay.sunday,
+        blinkDuration = Duration(seconds: 30),
+        listBlinkedDates = [],
 
         /// Setting weekdaysSymbol symbols.
         weekdaysSymbol = weekdaysSymbol ??
